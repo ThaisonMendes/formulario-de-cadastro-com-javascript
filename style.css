@@ -1,0 +1,139 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --cor-primaria: #7EFFF5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Work Sans", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #18181A; /* Fundo Escuro */
+    color: white; /* Fonte branca */
+}
+
+::selection {
+    background-color: #7EFFF5;
+    color: #18181A;
+}
+
+.container {
+    min-width: 28.325rem;
+}
+
+h1 {
+    color: #fff;
+    font-size: 1.65rem;
+    font-weight: 400;
+}
+
+form {
+    width: 100%;
+    margin-top: 33px;
+    padding: 33px 0;
+    border-top: 1.1px solid #2E3434;
+}
+
+label,
+input,
+button {
+    display: block;
+}
+
+label {
+    text-transform: uppercase;
+    font-size: 0.825rem;
+    margin-bottom: 0.6875rem;
+}
+
+input,
+button {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0 0.66rem;
+    font: inherit;
+    font-size: 0.9625rem;
+    border: none;
+    border-radius: 8.8px;
+}
+
+input {
+    background-color: #212426;
+    color: #8F9DA3;
+    margin-bottom: 0.77rem;
+    border: 0.11rem solid transparent;
+    outline: none;
+    transition: border-color 0.3s, background-color 0.3s;
+    caret-color: #7EFFF5;
+}
+
+input:hover {
+    background-color: #2E3434;
+}
+
+input:focus {
+    border-color: #7EFFF5;
+}
+
+.input-area {
+    position: relative;
+}
+
+.icone {
+    position: absolute;
+    top: 50%;
+    right: 0.44rem;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    user-select: none;
+    color: #8F9DA3;
+    font-size: 17.6px;
+}
+
+.icone.olho-fechado {
+    display: none;
+}
+
+button[type="submit"] {
+    text-transform: uppercase;
+    font-size: 0.77rem;
+    font-weight: 500;
+    color: #18181A;
+    background-color: var(--cor-primaria);
+    margin-top: 33px;
+    transition: background-color .3s;
+}
+
+button[type="submit"]:disabled {
+    background-color: #2E3434;
+    color: #5d6a6e;
+}
+
+button[type="submit"]:hover {
+    background-color: #00D1B8;
+}
+
+.sign-txt {
+    text-align: center;
+    font-size: 0.9625rem;
+    color: #5d6a6e;
+    font-weight: 500;
+}
+
+.sign-txt > a {
+    text-decoration: none;
+    color: var(--cor-primaria);
+} 
+
+.sign-txt > a:hover {
+    text-decoration: underline;
+}

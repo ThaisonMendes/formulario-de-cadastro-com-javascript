@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro com JavaScript</title>
+    <!--Icones-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <!--CSS-->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Criar uma conta</h1>
+        <form>
+            <label for="nome">Nome completo</label>
+            <input type="text" name="nome" id="nome" placeholder="Nome completo" required>
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" placeholder="E-mail" required>
+            <label for="senha">Senha</label>
+            <div class="input-area">
+                <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                <span class="icone olho-aberto material-symbols-outlined">visibility</span>
+                <span class="icone olho-fechado material-symbols-outlined">visibility_off</span>
+            </div>
+            <button type="submit">Criar conta</button>
+        </form>
+        <p class="sign-txt">Já tem uma conta? <a href="#">Fazer login</a></p>
+    </div>
+</body>
+</html>
