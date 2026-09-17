@@ -22,7 +22,7 @@ body {
 }
 
 ::selection {
-    background-color: #7EFFF5;
+    background-color: var(--cor-primaria);
     color: #18181A;
 }
 
@@ -73,7 +73,7 @@ input {
     border: 0.11rem solid transparent;
     outline: none;
     transition: border-color 0.3s, background-color 0.3s;
-    caret-color: #7EFFF5;
+    caret-color: var(--cor-primaria);
 }
 
 input:hover {
@@ -81,7 +81,7 @@ input:hover {
 }
 
 input:focus {
-    border-color: #7EFFF5;
+    border-color: var(--cor-primaria);
 }
 
 .input-area {
@@ -113,13 +113,13 @@ button[type="submit"] {
     transition: background-color .3s;
 }
 
+button[type="submit"]:hover {
+    background-color: #00D1B8;
+}
+
 button[type="submit"]:disabled {
     background-color: #2E3434;
     color: #5d6a6e;
-}
-
-button[type="submit"]:hover {
-    background-color: #00D1B8;
 }
 
 .sign-txt {

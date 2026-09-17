@@ -8,22 +8,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     <!--CSS-->
     <link rel="stylesheet" href="./style.css">
+    <!--Scripts-->
+    <script src="./script.js" defer></script>
 </head>
 <body>
     <div class="container">
         <h1>Criar uma conta</h1>
-        <form>
+        <form id="form-cadastrar">
             <label for="nome">Nome completo</label>
-            <input type="text" name="nome" id="nome" placeholder="Nome completo" required>
+            <input type="text" name="nome" id="nome" placeholder="Nome completo">
+            <p id="nomeErro" class="erro"></p>
             <label for="email">E-mail</label>
-            <input type="email" name="email" id="email" placeholder="E-mail" required>
+            <input type="email" name="email" id="email" placeholder="E-mail">
+            <p id="emailErro" class="erro"></p>
             <label for="senha">Senha</label>
             <div class="input-area">
-                <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                <input type="password" name="senha" id="senha" placeholder="Senha">
                 <span class="icone olho-aberto material-symbols-outlined">visibility</span>
                 <span class="icone olho-fechado material-symbols-outlined">visibility_off</span>
             </div>
-            <button type="submit">Criar conta</button>
+            <p id="senhaErro" class="erro"></p>
+            <button type="submit" id="btn-confirmar">Criar conta</button>
         </form>
         <p class="sign-txt">Já tem uma conta? <a href="#">Fazer login</a></p>
     </div>
