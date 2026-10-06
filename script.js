@@ -18,15 +18,25 @@ function Signup() {
             el.textContent = "";
         },
 
+        addBorderError(el) {
+            el.classList.add('input-error');
+        },
+
+        clearBorderError(el) {
+            el.classList.remove('input-error');
+        },
+
         isValidateName() {
             let nameValue = this.name.value.trim();
 
             if (!nameValue) {
                 this.displayError(nameError, "Campo vazio");
+                this.addBorderError(this.name);
                 return false;
             }
 
             this.clearError(this.nameError);
+            this.clearBorderError(this.name);
             return true;
         },
 
@@ -37,12 +47,14 @@ function Signup() {
             // console.log('qtd de arrobas: ', qtdArrobas);
 
             if (!emailValue) {
-                this.displayError(emailError, "Campo vazio");
+                this.displayError(this.emailError, "Campo vazio");
+                this.addBorderError(this.email);
                 return false;
             } 
             
             if (qtdArrobas > 1) {
-                this.displayError(emailError, "O e-mail só pode ter um '@'");
+                this.displayError(this.emailError, "O e-mail só pode ter um '@'");
+                this.addBorderError(this.email);
                 return false;
             }
 
@@ -56,27 +68,32 @@ function Signup() {
                 console.log(dominio);
                 
                 if ((localPart.match(/[^a-zA-Z0-9\-\+\._]/gi) || []).length > 0) {
-                    this.displayError(emailError, 'Por favor, insira um e-mail válido');
+                    this.displayError(this.emailError, 'Por favor, insira um e-mail válido');
+                    this.addBorderError(this.email);
                     return false;
                 }
 
                 if (localPart.length > 64) {
-                    this.displayError(emailError, 'Nome de e-mail muito comprido');
+                    this.displayError(this.emailError, 'Nome de e-mail muito comprido');
+                    this.addBorderError(this.email);
                     return false;
                 }
                 
                 if (localPart[0] === '.' || localPart[posDoArroba-1] === '.' || localPart[0] === '-' || localPart[posDoArroba-1] === '-') {
-                    this.displayError(emailError, "Não pode ter ' . ' ou ' - ' no inicio ou fim da parte local");
+                    this.displayError(this.emailError, "Não pode ter ' . ' ou ' - ' no inicio ou fim da parte local");
+                    this.addBorderError(this.email);
                     return false;
                 }
 
                 if (dominio.match(/[\.]/) === null) {
-                    this.displayError(emailError, "Por favor, insira um email válido");
+                    this.displayError(this.emailError, "Por favor, insira um email válido");
+                    this.addBorderError(this.email);
                     return false;
                 }
             }
 
-            this.clearError(emailError);
+            this.clearError(this.emailError);
+            this.clearBorderError(this.email);
             return true
         },
 
@@ -84,11 +101,13 @@ function Signup() {
             let passValue = this.pass.value.trim();
 
             if (passValue.length < 8) {
-                this.displayError(passError, "A senha deve ter pelo menos 8 caracteres");
+                this.displayError(this.passError, "A senha deve ter pelo menos 8 caracteres");
+                this.addBorderError(this.pass);
                 return false;
             }
 
-            this.clearError(passError);
+            this.clearError(this.passError);
+            this.clearBorderError(this.pass);
             return true;
         },
 
@@ -103,7 +122,7 @@ function Signup() {
         sendForm() {
             this.form.addEventListener('submit', e => {
                 e.preventDefault();
-                console.log('Evento previnido!');
+                // console.log('Evento previnido!');
 
                 if(this.validateForm()) {
                     console.log("Cadastro realizado com sucesso!");
