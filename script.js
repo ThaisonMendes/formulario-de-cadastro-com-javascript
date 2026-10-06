@@ -19,7 +19,7 @@ function Signup() {
         },
 
         isValidateName() {
-            let nameValue = this.name.value;
+            let nameValue = this.name.value.trim();
 
             if (!nameValue) {
                 this.displayError(nameError, "Campo vazio");
@@ -56,7 +56,7 @@ function Signup() {
                 console.log(dominio);
                 
                 if ((localPart.match(/[^a-zA-Z0-9\-\+\._]/gi) || []).length > 0) {
-                    this.displayError(emailError, 'Por favor, insira um endereço de e-mail válido');
+                    this.displayError(emailError, 'Por favor, insira um e-mail válido');
                     return false;
                 }
 
@@ -71,7 +71,7 @@ function Signup() {
                 }
 
                 if (dominio.match(/[\.]/) === null) {
-                    this.displayError(emailError, "Por favor, insira um domínio válido (ex: .com, .com.br ou .org)");
+                    this.displayError(emailError, "Por favor, insira um email válido");
                     return false;
                 }
             }
@@ -81,7 +81,7 @@ function Signup() {
         },
 
         isValidatePass() {
-            let passValue = this.pass.value;
+            let passValue = this.pass.value.trim();
 
             if (passValue.length < 8) {
                 this.displayError(passError, "A senha deve ter pelo menos 8 caracteres");
