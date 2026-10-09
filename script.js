@@ -111,27 +111,50 @@ function Signup() {
         },
 
         validateForm() {
-            let okName = this.isValidateName();
-            let okEmail = this.isValidateEmail();
-            let okPass = this.isValidatePass();
+            document.addEventListener('input', (e) => {
+
+                const el = e.target;
+                console.log(el)
+                let okName;
+                let okEmail;
+                let okPass;
+
+                if (el == this.name) {
+                    okName = this.isValidateName();
+                }
+                if (el == this.email) {
+                    okEmail = this.isValidateEmail();
+                }
+                if (el == this.pass) {
+                    okPass = this.isValidatePass();
+                }
+                
+                return okName && okEmail & okPass;
+                
+            });
             
-            return okName && okEmail & okPass;
         },
 
-        sendForm() {
+        habilitarBotao() {
+            if(this.validateForm()) {
+                this.submitBtn.disabled = false;
+            } else {
+                this.submitBtn.disabled = true;
+            }
+        },
+
+        sendForm() {            
             this.form.addEventListener('submit', e => {
                 e.preventDefault();
-                // console.log('Evento previnido!');
+                console.log('Evento previnido!');
 
-                if(this.validateForm()) {
-                    console.log("Cadastro realizado com sucesso!");
-                } else {
-                    console.log("Preencha todos os campos corretamente!");
-                }
+                console.log("Cadastro realizado com sucesso!");
+                // console.log("Preencha todos os campos corretamente!");
             });
         },
 
         init() {
+            this.habilitarBotao();
             this.submitBtn.addEventListener('click', () => {
                 this.sendForm();
             });
