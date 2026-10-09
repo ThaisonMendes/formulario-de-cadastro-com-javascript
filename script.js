@@ -9,7 +9,6 @@ function Signup() {
         passError: document.getElementById("passError"),
         submitBtn: document.getElementById("submit-btn"),
 
-
         displayError(el, msg) {
             el.textContent = msg;
         },
@@ -22,7 +21,7 @@ function Signup() {
             el.classList.add('input-error');
         },
 
-        clearBorderError(el) {
+        removeBorderError(el) {
             el.classList.remove('input-error');
         },
 
@@ -36,7 +35,7 @@ function Signup() {
             }
 
             this.clearError(this.nameError);
-            this.clearBorderError(this.name);
+            this.removeBorderError(this.name);
             return true;
         },
 
@@ -93,7 +92,7 @@ function Signup() {
             }
 
             this.clearError(this.emailError);
-            this.clearBorderError(this.email);
+            this.removeBorderError(this.email);
             return true
         },
 
@@ -107,7 +106,7 @@ function Signup() {
             }
 
             this.clearError(this.passError);
-            this.clearBorderError(this.pass);
+            this.removeBorderError(this.pass);
             return true;
         },
 
@@ -133,7 +132,9 @@ function Signup() {
         },
 
         init() {
-            this.sendForm();
+            this.submitBtn.addEventListener('click', () => {
+                this.sendForm();
+            });
         }
     }
 }

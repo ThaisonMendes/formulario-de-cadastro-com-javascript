@@ -146,9 +146,14 @@ button[type="submit"]:disabled {
     color: var(--p-color-error);
     font-size: 0.875rem;
     font-weight: 400;
-    margin-bottom: 20px;
+    margin-bottom: 0.75rem;
 }
 
 .input-error {
+    caret-color: var(--input-border-color-error);
+    border-color: var(--input-border-color-error);
+}
+
+.input-error:focus {
     border-color: var(--input-border-color-error);
 }
